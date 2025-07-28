@@ -1,0 +1,24 @@
+﻿@page
+@model Razor_first_Page.Pages.FormulaireModel
+@{
+}
+
+<h1>Formulaire</h1>
+<p>@Model.Message</p>
+
+<form method="post">
+	<label>Nom :</label>
+	<input asp-for="Nom" type="text"/>
+	<span asp-validation-for="Nom" style="color:red"></span>
+	<button type="submit">Envoyer</button>
+	<button type="reset">Annuler</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Nom))
+{
+	<p>@Model.Message</p>
+}
+
+@section Scripts{
+	<partial name="_ValidationScriptsPartial"/>
+}
