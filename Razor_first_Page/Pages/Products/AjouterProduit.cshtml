@@ -1,0 +1,33 @@
+﻿@page
+@model Razor_first_Page.Pages.Products.AjouterProduitModel
+@{
+}
+
+
+<h1>Ajouter un produit</h1>
+<form method="post">
+	<label>Nom :</label>
+	<input asp-for="Product.Nom" type="text" />
+	<span asp-validation-for="Product.Nom" style="color:red"></span>
+	<br />
+	<label>Prix :</label>
+	<input asp-for="Product.Prix" type="text" />
+	<span asp-validation-for="Product.Prix" style="color:red"></span>
+	<br />
+	<label>Description :</label>
+	<input asp-for="Product.Description" type="text" />
+	<span asp-validation-for="Product.Description" style="color:red"></span>
+	<br />
+	<label>Categorie :</label>
+	@* <input asp-for="Product.CategorieId" type="text" /> *@
+	<select asp-for="Product.CategorieId" asp-items="Model.Categories">
+		@* 		<option value="1">Electronique</option>
+		<option value="2">Mode</option>
+		<option value="3">Autres</option> *@	
+		<option value="">Selectionner une categorie</option>
+	</select>
+	<span asp-validation-for="Product.CategorieId" style="color:red"></span>
+	<br />
+	<button type="submit">Ajouter</button>
+	<button type="reset">Annuler</button>
+</form>

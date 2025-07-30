@@ -2,3 +2,33 @@
 @model Razor_first_Page.Pages.Products.ListProduitsModel
 @{
 }
+<h1>Liste des Produits</h1>
+<table>
+	<thead>
+	<tr>
+		<th>Nom</th>
+		<th>Prix</th>
+		<th>Description</th>
+		<th>Categorie</th>
+		<th>Actions</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var produit in Model.Products)
+	{
+		<tr>
+			<td>@produit.Nom</td>
+			<td>@produit.Prix</td>
+			<td>@produit.Description</td>
+			<td>@produit.Categorie.Nom</td>
+			<td>
+				<a asp-page="ModifierProduit" asp-route-id="@produit.Id">Modifier</a>
+				<a asp-page="SupprimerProduit" asp-route-id="@produit.Id">Supprimer</a>
+			</td>	
+		</tr>
+	}
+	</tbody>
+</table>
+
+<p style="color:red">@Model.Message</p>
+<button><a asp-page="AjouterProduit">Ajouter Produit</a></button>
